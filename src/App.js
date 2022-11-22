@@ -12,7 +12,10 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+// import TvShow from './components/shows/TvShow'
+
 import Button from 'react-bootstrap/Button'
+import TvShow from './components/shows/TvShow'
 
 const App = () => {
 	const [user, setUser] = useState(null)
@@ -44,6 +47,7 @@ const App = () => {
 		<Fragment>
 			<Header user={user} />
 			<Routes>
+				{/* AllShows in Homepage */}
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
 					path='/sign-up'
@@ -53,6 +57,14 @@ const App = () => {
 					path='/sign-in'
 					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 				/>
+				<Route
+            		path='/sign-out'
+            		element={
+						<RequireAuth user={user}>
+						<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>
+            		}
+          		/>
           		<Route
             		path='/sign-out'
             		element={
@@ -66,6 +78,14 @@ const App = () => {
 					element={
               		<RequireAuth user={user}>
                 	<ChangePassword msgAlert={msgAlert} user={user} />
+              		</RequireAuth>}
+          		/>
+				{/* this is where my new route for single show is going to be */}
+				<Route
+					path='/tvshow/:id'
+					element={
+              		<RequireAuth user={user}>
+                	<TvShow msgAlert={msgAlert} user={user} />
               		</RequireAuth>}
           		/>
 				</Routes>

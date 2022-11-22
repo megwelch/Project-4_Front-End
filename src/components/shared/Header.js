@@ -63,3 +63,12 @@ const Header = ({ user }) => (
 )
 
 export default Header
+
+// const fetchData = () => {
+// 	console.log('id', id)
+// 	const res = axios.get(`https://api.tvmaze.com/shows/${id}`)
+// 	setShow('show', res.data)
+// 	console.log(res)
+// };
+// fetchData();
+// }, []);
