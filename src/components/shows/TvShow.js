@@ -5,22 +5,31 @@ import { useParams } from 'react-router-dom'
 
 const TvShow = () => {
     const { id } = useParams()
-    const [show, setShow] = useState([])
+    const sliceId = id.slice(1, id.length)
+    const [show, setShow] = useState(null)
 
     useEffect(() => {
-        console.log(id)
         const fetchData = async () => {
-            console.log('id', id)
-            const res = await axios(`https://api.tvmaze.com/shows/${id}`)
-            console.log(res)
-            setShow('show', res.data)
+            const res = await axios(`https://api.tvmaze.com/shows/${sliceId}`)
+            setShow(res.data)
+            console.log('show', show)
+            // console.log('image', show.image.original)
         };
         fetchData();
     }, []);
 
+    if (!show){
+        return <div>Loading...</div>
+    }
+
+    let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
+    console.log(summary)
+
     return(
         <>
-        Hi
+        <h1>{show.name}</h1>
+        <img src={show.image.original} />
+        <p>{summary}</p>
         </>
     )
 }

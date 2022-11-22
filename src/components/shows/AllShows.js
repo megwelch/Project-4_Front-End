@@ -41,7 +41,7 @@ const AllShows = () => {
 
     return(
         <>
-        <form onSubmit={handleSubmit} className='form-container'>
+        <form onSubmit={handleSubmit} className='search-container'>
             <input
                 type = 'name'
                 onChange = {handleChange}
@@ -51,9 +51,12 @@ const AllShows = () => {
             </input>
             <button type='submit' className='submit-button'>Search</button>
         </form>
+        <div className='show-container'>
             {shows.map(show => (
                 <ShowCard key={show.id} show={show}/>
             ))}
+        </div>
+
         </>
     )
 }
