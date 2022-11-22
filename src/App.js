@@ -12,18 +12,18 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import Button from 'react-bootstrap/Button'
 
 const App = () => {
+	const [user, setUser] = useState(null)
+	const [msgAlerts, setMsgAlerts] = useState([])
+	console.log('user in app', user)
+  	console.log('message alerts', msgAlerts)
 
-  const [user, setUser] = useState(null)
-  const [msgAlerts, setMsgAlerts] = useState([])
-
-  console.log('user in app', user)
-  console.log('message alerts', msgAlerts)
-  const clearUser = () => {
-    console.log('clear user ran')
-    setUser(null)
-  }
+  	const clearUser = () => {
+		console.log('clear user ran')
+		setUser(null)
+  	}
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -36,40 +36,40 @@ const App = () => {
 		setMsgAlerts(() => {
 			return (
 				[{ heading, message, variant, id }]
-      )
+      		)
 		})
 	}
 
-		return (
-			<Fragment>
-				<Header user={user} />
-				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-					<Route
-						path='/sign-up'
-						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-					/>
-					<Route
-						path='/sign-in'
-						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-					/>
-          <Route
-            path='/sign-out'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path='/change-password'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
+	return (
+		<Fragment>
+			<Header user={user} />
+			<Routes>
+				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+				<Route
+					path='/sign-up'
+					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+				/>
+				<Route
+					path='/sign-in'
+					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+				/>
+          		<Route
+            		path='/sign-out'
+            		element={
+						<RequireAuth user={user}>
+						<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>
+            		}
+          		/>
+          		<Route
+					path='/change-password'
+					element={
+              		<RequireAuth user={user}>
+                	<ChangePassword msgAlert={msgAlert} user={user} />
+              		</RequireAuth>}
+          		/>
 				</Routes>
-				{msgAlerts.map((msgAlert) => (
+					{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
 						key={msgAlert.id}
 						heading={msgAlert.heading}
@@ -79,8 +79,8 @@ const App = () => {
 						deleteAlert={deleteAlert}
 					/>
 				))}
-			</Fragment>
-		)
+		</Fragment>
+	)
 }
 
 export default App
