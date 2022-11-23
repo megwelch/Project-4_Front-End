@@ -88,6 +88,13 @@ const App = () => {
                 	<TvShow msgAlert={msgAlert} user={user} />
               		</RequireAuth>}
           		/>
+				{/* <Route
+					path='/favorites'
+					element={
+              		<RequireAuth user={user}>
+                	<FavoriteTvShow msgAlert={msgAlert} user={user} />
+              		</RequireAuth>}
+          		/> */}
 				</Routes>
 					{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
