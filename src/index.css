@@ -116,3 +116,14 @@ body {
   height: 283px;
   color: #590e7e;
 }
+
+.favorite-shows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favorite-show-card {
+  margin: 20px;
+}

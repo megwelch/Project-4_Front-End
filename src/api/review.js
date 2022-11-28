@@ -14,10 +14,10 @@ export const reviewCreate = (data, user) => {
 	})
 }
 
-export const reviewIndex = (user) => {
+export const reviewIndex = (showId) => {
 	return axios({
 		method: 'GET',
-		url: apiUrl + '/reviews'
+		url: apiUrl + `/reviews/${showId}`
 	})
 }
 

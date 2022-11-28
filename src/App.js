@@ -95,6 +95,13 @@ const App = () => {
                 	<FavoritesIndex msgAlert={msgAlert} user={user} />
               		</RequireAuth>}
           		/>
+				<Route
+					path='/reviews'
+					element={
+              		<RequireAuth user={user}>
+                	<FavoritesIndex msgAlert={msgAlert} user={user} />
+              		</RequireAuth>}
+          		/>
 				</Routes>
 					{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { favoriteTvShow } from '../../api/tvshow'
 
 export const FavoriteTvShow = ({ show, user }) => {
-    console.log('show', show)
+    const [favBtn, setFavBtn] = useState(false)
     const [favorite, setFavorite] = useState(
         {
             title: show.name,
@@ -14,6 +14,7 @@ export const FavoriteTvShow = ({ show, user }) => {
 
     const handleClick = (e) => {
         favoriteTvShow (favorite, user)
+        setFavBtn()
     }
 
     return (
