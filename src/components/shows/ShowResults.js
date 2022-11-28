@@ -22,7 +22,7 @@ const ShowResults = (props) => {
                             {element.show.image ? 
                             (<img src={element.show.image.medium} alt={element.show.name} />)
                             : 
-                            (<div className="missing-img-div"><img src=""/><h1>no photo available</h1></div>)}
+                            (<div className="missing-img-div"><img src=""/><h1 className='text-center'>no photo available</h1></div>)}
                         </div>
                     </li>
                 )

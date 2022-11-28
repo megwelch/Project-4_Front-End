@@ -14,3 +14,10 @@ export const favoriteTvShow = (data, user) => {
 		},
 	})
 }
+
+export const favoritesIndex = (data, userId) => {
+	return axios({
+		method: 'GET',
+		url: apiUrl + `/favorites`,
+	})
+}

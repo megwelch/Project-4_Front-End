@@ -12,7 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-// import TvShow from './components/shows/TvShow'
+import FavoritesIndex from './components/shows/FavoritesIndex'
 
 import Button from 'react-bootstrap/Button'
 import TvShow from './components/shows/TvShow'
@@ -88,13 +88,13 @@ const App = () => {
                 	<TvShow msgAlert={msgAlert} user={user} />
               		</RequireAuth>}
           		/>
-				{/* <Route
+				<Route
 					path='/favorites'
 					element={
               		<RequireAuth user={user}>
-                	<FavoriteTvShow msgAlert={msgAlert} user={user} />
+                	<FavoritesIndex msgAlert={msgAlert} user={user} />
               		</RequireAuth>}
-          		/> */}
+          		/>
 				</Routes>
 					{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert

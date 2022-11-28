@@ -9,13 +9,18 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item>
-			<Link to='change-password' style={linkStyle}>
+			<Link className='nav-link' to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
 		<Nav.Item>
-			<Link to='sign-out' style={linkStyle}>
+			<Link className='nav-link' to='sign-out' style={linkStyle}>
 				Sign Out
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link className='nav-link' to='/favorites' style={linkStyle}>
+				Favorites
 			</Link>
 		</Nav.Item>
 	</>
@@ -24,10 +29,10 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
 	<>
         <Nav.Item>
-		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
+		    <Link className='nav-link' to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
         <Nav.Item>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+		    <Link  className='nav-link' to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
 	</>
 )
@@ -43,18 +48,18 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                react-auth-template
+	<Navbar variant='dark' className='nav-bar p-0'>
+		<Navbar style={{padding: '0px'}}>
+            <Link to='/' className='bingeworthy d-flex align-items-center' style={linkStyle}>
+                <div className='mb-2'>Bingeworthy</div> <i class="fa-solid fa-tv"></i>
             </Link>
-        </Navbar.Brand>
+        </Navbar>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
-				{user && (
+			<Nav className='ms-auto d-flex align-items-center nav-link'>
+				{/* {user && (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
-				)}
+				)} */}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
@@ -63,12 +68,3 @@ const Header = ({ user }) => (
 )
 
 export default Header
-
-// const fetchData = () => {
-// 	console.log('id', id)
-// 	const res = axios.get(`https://api.tvmaze.com/shows/${id}`)
-// 	setShow('show', res.data)
-// 	console.log(res)
-// };
-// fetchData();
-// }, []);

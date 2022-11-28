@@ -5,11 +5,87 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #9818d6;
+}
+
+.bingeworthy {
+  font-family: 'Notable', sans-serif;
+  font-size: 40px;
+  margin-left: 20px;
+  gap: 15px;
+}
+
+.nav-bar {
+  background-color: #590e7e;
+}
+
+.nav-link {
+  margin-left: 20px;
+}
+
+.top-container {
+  display: flex;
+  width: 90vw;
+  margin: auto;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 30px;
+}
+
+.search-text {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.input {
+  height: 40px;
+  width: 500px;
+  margin-left: 45px;
+  border-radius: 20px;
+  border: none;
+  padding-left: 20px;
+}
+
+.search-btn {
+  height: 40px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 50%;
+  padding: 0px 13px;
+  background-color: #ffbd39;
+}
+
+.search-btn:hover {
+  background-color: 
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.kermit-container {
+  margin-left: 80px;
+  text-align: right;
+  background-position: center;
+  background-size: contain;
+}
+
+#kermit {
+  width: 80%;
+  margin-right: 4%;
 }
 
 .show-container {
   margin: auto;
-  padding: 50px;
+  padding: 0px 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -17,9 +93,18 @@ body {
 }
 
 .show-card {
-  max-width: 210px;
-  max-height: 292px;
+  max-width: 220px;
+  max-height: 300px;
   margin-bottom: 20px;
+  padding: 8px;
+  transition: .3s ease;
+}
+
+.show-card:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: .3s ease;
 }
 
 .card-title {
@@ -27,8 +112,7 @@ body {
   color: black;
 }
 
-.search-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+.missing-img-div {
+  height: 283px;
+  color: #590e7e;
 }
