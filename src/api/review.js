@@ -1,10 +1,10 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const reviewCreate = (data, user) => {
+export const reviewCreate = (data, user, showId) => {
 	return axios({
 		method: 'POST',
-		url: apiUrl + '/reviews',
+		url: apiUrl + `/reviews/${showId}`,
 		data: {
 			review: data,
 		},

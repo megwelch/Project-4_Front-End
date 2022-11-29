@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import FavoriteTvShow from './FavoriteTvShow';
 import ReviewIndex from '../reviews/ReviewIndex';
 
 const TvShow = ({ user: user }) => {
-    const { showId } = useParams()
-    const sliceId = showId.slice(1, showId.length)
+    const { id } = useParams()
+    const sliceId = id.slice(1, id.length)
     const [show, setShow] = useState(null)
 
     useEffect(() => {
@@ -31,7 +31,8 @@ const TvShow = ({ user: user }) => {
         <img src={show.image.original} />
         <p>{summary}</p>
         <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
-        <ReviewIndex showId = {showId}></ReviewIndex>
+        <Link to={`/reviews/${id}`}>link</Link>
+        <ReviewIndex showId = {id}></ReviewIndex>
         </>
     )
 }
