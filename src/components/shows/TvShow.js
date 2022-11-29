@@ -6,14 +6,14 @@ import ReviewIndex from '../reviews/ReviewIndex';
 
 const TvShow = ({ user: user }) => {
     const { id } = useParams()
-    const sliceId = id.slice(1, id.length)
+    console.log(id, 'id')
+    // const sliceId = id.slice(1, id.length)
     const [show, setShow] = useState(null)
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios(`https://api.tvmaze.com/shows/${sliceId}`)
+            const res = await axios(`https://api.tvmaze.com/shows/${id}`)
             setShow(res.data)
-            console.log('show', show)
         };
         fetchData();
     }, []);
@@ -22,17 +22,32 @@ const TvShow = ({ user: user }) => {
         return <div>Loading...</div>
     }
 
+    console.log('show', show)
     let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
     console.log(summary)
 
     return(
         <>
-        <h1>{show.name}</h1>
-        <img src={show.image.original} />
-        <p>{summary}</p>
-        <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
-        <Link to={`/reviews/${id}`}>link</Link>
-        <ReviewIndex showId = {id}></ReviewIndex>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
+        <div className='show-page'>
+            <section className='ind-show-container'>
+            <div className='title mt-3'>
+                {show.name}
+                <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
+            </div>
+                <div className='show-border d-flex flex-row p-4'>
+                    <div><img className='ind-show-img'src={show.image.original}/></div>
+                    <div className='ind-summary'>{summary}</div>
+                </div>
+            </section>
+            <section className='show-review-section'>
+                <div className='show-btns mt-5'>
+                    
+                    <Link to={`/reviews/${id}`}>Leave a review</Link>
+                </div>
+                <ReviewIndex showId = {id}></ReviewIndex>
+            </section>
+        </div>
         </>
     )
 }

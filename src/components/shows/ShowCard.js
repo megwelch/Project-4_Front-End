@@ -6,7 +6,7 @@ import { Card }from 'react-bootstrap'
 const ShowCard = ({ show: {image, name, rating, id}}) => {
     return (
         <>
-        <Link style={{textDecoration: 'none'}} to = {`/tvshow/:${id}`}>
+        <Link style={{textDecoration: 'none'}} to = {`/tvshow/${id}`}>
             <Card className='show-card shadow'>
                 {image ? 
                 (<img src={image.medium} alt={name} />)

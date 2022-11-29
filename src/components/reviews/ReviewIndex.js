@@ -9,7 +9,8 @@ const ReviewIndex = (props) => {
     useEffect(() => {
         reviewIndex(showId)
             .then(res=> {
-                setReviews('res.data.reviews', res.data.reviews)
+                console.log('res in index', res)
+                setReviews(res.data.reviews)
             })
             // .catch((error) => {
             //     msgAlert({
