@@ -13,7 +13,6 @@ const FavoritesIndex = (props) => {
         favoritesIndex(user)
             .then(res=> {
                 setAllFavorites(res.data.tvShow)
-                console.log('res.data', res.data.tvShow)
             })
             .catch((error) => {
                 msgAlert({

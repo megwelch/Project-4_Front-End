@@ -9,18 +9,16 @@ import axios from 'axios';
 const ReviewCreate = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
-    // const { showId } = useParams()
-    // const sliceShowId = showId.slice(1, showId.length)
     const [id, setId] = useState(1)
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios(`https://api.tvmaze.com/shows/${id}`)
-            console.log('res.data.id', res.data.id)
             setId(res.data.id)
         };
         fetchData();
     }, []);
+    console.log('id', id)
 
     const defaultReview = {
         comment: '',
@@ -40,7 +38,7 @@ const ReviewCreate = (props) => {
     const createReview = (e) => {
         e.preventDefault()
         reviewCreate(review, user, id)
-            .then(() => { navigate(`/tvshow/:${id}`)})
+            .then(() => { navigate(`/tvshow/${id}`)})
             .catch((error) => {
                 msgAlert({
                     heading: 'Failure',

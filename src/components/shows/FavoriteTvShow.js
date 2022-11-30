@@ -6,10 +6,8 @@ import { useParams } from 'react-router-dom'
 
 export const FavoriteTvShow = ({ show, user }) => {
     const { id } = useParams()
-    console.log('id', id)
-    const [favBtn, setFavBtn] = useState(null)
+    const [favBtn, setFavBtn] = useState(false)
     const [allFavorites, setAllFavorites] = useState({})
-    const [owner, setOwner] = useState({})
     const [favorite, setFavorite] = useState(
         {
             title: show.name,
@@ -23,49 +21,30 @@ export const FavoriteTvShow = ({ show, user }) => {
     useEffect(() => {
         favoritesIndex(user)
             .then(res=> {
-                // setAllFavorites(res.data.tvShow)
-                // console.log('res.data', res.data)
                 setAllFavorites(res.data.tvShow)
             })
-            // .catch((error))
     }, [])
+    
 
-    // console.log('ownerrrrr', owner)
-
-    // allFavorites.map((tvShow) => {
-    //         return 
-    //             {tvShow.title}
-    //     })
-    // }
-
-    console.log(allFavorites)
     let tvShowArr = Array.from(allFavorites)
-    console.log('tvshowarr', tvShowArr)
-    let ownerInArr = tvShowArr.some(tvshow => tvshow.owner._id === user._id)
-    console.log(ownerInArr)
-    console.log('apiId', favorite.apiId)
-    let titleArr = []
+    // console.log(tvShowArr[0].title)
 
-    console.log(tvShowArr[1].title)
 
-    for (let i=0; 1<tvShowArr; i++){
-        if (tvShowArr[i].title = favorite.title)
-        titleArr.push(tvShowArr[i])
-    }
-
-    console.log('titleArr', titleArr)
+    console.log(tvShowArr)
+    
+    let favorited = tvShowArr.some(tvshow => (tvshow.owner._id === user._id) && (tvshow.apiId == id))
+    console.log(favorited)
 
     const handleClick = (e) => {
-        if((ownerInArr && (favorite.apiId == id))){
-            console.log('hello')
-            setFavBtn(false)
-        } else {
+        favoriteTvShow (favorite, user)
+        if (favorited) {
             setFavBtn(true)
-            favoriteTvShow (favorite, user)
+        } else {
+            setFavBtn(false)
         }
     }
 
-    console.log('favbtn',favBtn)
+    // console.log('favbtn',favBtn)
 
     // const favBtn = () => {
     //     if (allFavorites.some(tvshow => tvshow.name === user._id)){
@@ -74,12 +53,16 @@ export const FavoriteTvShow = ({ show, user }) => {
     // }
 
     // favBtn()
-    console.log('favorite', favorite.apiId)
-    console.log(user._id)
+    // console.log('favorite', favorite.apiId)
+    // console.log(user._id)
 
     return (
         <>
-        <button className='favorite-btn' onClick={handleClick}>Favorite</button>
+        {favBtn ? 
+            <button className='favorite-btn' onClick={handleClick}>Unfavorite</button>
+         :
+            <button className='favorite-btn' onClick={handleClick}>Favorite</button>
+        }
         </>
     )
 }

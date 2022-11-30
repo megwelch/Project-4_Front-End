@@ -6,8 +6,6 @@ import ReviewIndex from '../reviews/ReviewIndex';
 
 const TvShow = ({ user: user }) => {
     const { id } = useParams()
-    console.log(id, 'id')
-    // const sliceId = id.slice(1, id.length)
     const [show, setShow] = useState(null)
 
     useEffect(() => {
@@ -22,9 +20,7 @@ const TvShow = ({ user: user }) => {
         return <div>Loading...</div>
     }
 
-    console.log('show', show)
     let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
-    console.log(summary)
 
     return(
         <>
@@ -45,7 +41,7 @@ const TvShow = ({ user: user }) => {
                     
                     <Link to={`/reviews/${id}`}>Leave a review</Link>
                 </div>
-                <ReviewIndex showId = {id}></ReviewIndex>
+                <ReviewIndex showId={id} user={user}></ReviewIndex>
             </section>
         </div>
         </>
