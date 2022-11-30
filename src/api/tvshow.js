@@ -24,3 +24,13 @@ export const favoritesIndex = (user) => {
 		},
 	})
 }
+
+export const favoritesDelete = (user, showId) => {
+	return axios({
+		method: 'DELETE',
+		url: apiUrl + `/favorites/${showId}`,
+        headers: {
+            Authorization: `Token token=${user.token}`,
+        }
+	})
+}

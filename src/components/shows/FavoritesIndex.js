@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Card }from 'react-bootstrap'
 import { favoritesIndex } from '../../api/tvshow'
 import { useParams } from 'react-router-dom'
-import FavoriteTvShow from './FavoriteTvShow'
 
 const FavoritesIndex = (props) => {
     const {msgAlert, user, favorites} = props
@@ -13,9 +12,8 @@ const FavoritesIndex = (props) => {
     useEffect(() => {
         favoritesIndex(user)
             .then(res=> {
-                console.log(res)
                 setAllFavorites(res.data.tvShow)
-                console.log('res.data.tvShow', res.data.tvShow)
+                console.log('res.data', res.data.tvShow)
             })
             .catch((error) => {
                 msgAlert({
@@ -26,10 +24,12 @@ const FavoritesIndex = (props) => {
             })
     }, [])
 
+    console.log('user', user._id)
+
+
     let allFavoritesJSX =  null
     if (allFavorites) {
         allFavoritesJSX = allFavorites.map((tvShow) => {
-            console.log(tvShow)
             return (
                 <Card className='shadow favorite-show-card'>
                     <div>{tvShow.title}</div>
