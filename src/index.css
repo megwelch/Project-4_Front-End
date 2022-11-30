@@ -161,12 +161,6 @@ body {
   padding: 10px 30px;
 }
 
-.show-review-section {
-  width: 50vw;
-  display: flex;
-  justify-content: center;
-}
-
 .title {
   font-size: 60px;
   color: #590e7e;
@@ -190,4 +184,26 @@ body {
   background-color: #ffbd39;
   color: #590e7e;
   border: 3px solid #590e7e;
+}
+
+.review-link-section{
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.review-link {
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.rating {
+  font-size: 40px;
+  color: #590e7e;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.fa-star {
+  color: #ffbd39;
 }

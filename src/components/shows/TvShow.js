@@ -20,6 +20,8 @@ const TvShow = ({ user: user }) => {
         return <div>Loading...</div>
     }
 
+    console.log('show', show)
+
     let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
 
     return(
@@ -33,16 +35,17 @@ const TvShow = ({ user: user }) => {
             </div>
                 <div className='show-border d-flex flex-row p-4'>
                     <div><img className='ind-show-img'src={show.image.original}/></div>
-                    <div className='ind-summary'>{summary}</div>
+                    <div className='ind-summary'>
+                        <div className='rating'>{show.rating.average} / 10 <i class="fa-solid fa-star"></i></div>
+                        <div >{summary}</div>
+                    </div>
+                </div>
+            
+                <div className='review-link-section'>             
+                    <Link className='favorite-btn review-link' to={`/reviews/${id}`}>Leave a review</Link>
                 </div>
             </section>
-            <section className='show-review-section'>
-                <div className='show-btns mt-5'>
-                    
-                    <Link to={`/reviews/${id}`}>Leave a review</Link>
-                </div>
-                <ReviewIndex showId={id} user={user}></ReviewIndex>
-            </section>
+            <ReviewIndex showId={id} user={user}></ReviewIndex>
         </div>
         </>
     )

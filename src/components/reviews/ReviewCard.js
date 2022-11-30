@@ -6,6 +6,7 @@ import ReviewUpdate from "./ReviewUpdate";
 const ReviewCard = (props) => {
     const [review, setReview] = useState(props.review)
     const {user, setUpdateReviews} = props
+    const [showModal, setShowModal] = useState(false)
 
     const deleteReview = () => {
 
@@ -23,15 +24,18 @@ const ReviewCard = (props) => {
         // console.log('review in delete review card', review)
     }
 
+    const openModal = () => {setShowModal(true)}
+    const closeModal = () => {setShowModal(false)}
+
     return (
         <>
             <div className='review' key={uuid()} >
                 <div>{review.owner}</div>
                 <div>{review.comment}</div>
-                <button onClick={deleteReview}>X</button>
-                <button >O</button>
+                <button onClick={deleteReview}>delete</button>
+                <button onClick={openModal}>edit</button>
             </div>
-            <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews}/>
+            <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews} showModal={showModal} closeModal={closeModal}/>
         </>
     )
 }
