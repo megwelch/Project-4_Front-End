@@ -22,6 +22,8 @@ const TvShow = ({ user: user }) => {
 
     console.log('show', show)
 
+
+
     let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
 
     return(

@@ -35,11 +35,6 @@ const AllShows = () => {
         fetchData();
     }, []);
 
-    // const getShow = async id => {
-    //     const res = await axios.get(`https://api.tvmaze.com/shows/${id}`);
-    //     setShow(res.data);
-    //   };   
-
     return(
         <>
         <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>

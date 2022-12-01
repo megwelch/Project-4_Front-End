@@ -9,7 +9,9 @@ const ReviewCreate = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
     const [id, setId] = useState(1)
+    const [review, setReview] = useState(defaultReview)
 
+    // Getting TV Show
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios(`https://api.tvmaze.com/shows/${id}`)
@@ -17,16 +19,11 @@ const ReviewCreate = (props) => {
         };
         fetchData();
     }, []);
-    console.log('id', id)
 
     const defaultReview = {
         comment: '',
         apiId: parseInt(id),
     }
-
-    // console.log('sliceShowId', sliceShowId)
-
-    const [review, setReview] = useState(defaultReview)
 
     const handleChange = (e) => {
         setReview(prevReview => {
@@ -49,13 +46,6 @@ const ReviewCreate = (props) => {
 
     return(
         <>
-            {/* <Link
-                to = {`/reviews/${id}`}
-                onSubmit={createReview}
-                handleChange={handleChange}
-                createReview={createReview}
-                review={review}
-            ></Link> */}
         <Form onSubmit={createReview}>
             <Form.Label>Comment:</Form.Label>
             <Form.Control type='text' name='comment' value={review.comment} onChange={handleChange}/>

@@ -26,9 +26,15 @@ export const FavoriteTvShow = ({ show, user }) => {
             })
     }, [])
     
-    const unFavorite = () => {
-        favoritesDelete(user, id)
+    const unFavorite = (id) => {
+      let newFav =  allFavorites.filter((fav)=> fav._id !== id )
+        setAllFavorites(newFav)
+        // favoritesDelete(user, id)
     }
+
+    console.log('all favs', allFavorites)
+    console.log('id', id)
+    console.log(favorite, 'fav')
         
 
     let tvShowArr = Array.from(allFavorites)

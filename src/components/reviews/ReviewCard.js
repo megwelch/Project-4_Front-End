@@ -9,9 +9,6 @@ const ReviewCard = (props) => {
     const [review, setReview] = useState(props.review)
 
     const deleteReview = () => {
-
-        console.log('user', user)
-        console.log('props', props)
         reviewDelete(user, review._id)
             .then(() => {
                 setUpdateReviews((prevState) => {
@@ -21,12 +18,10 @@ const ReviewCard = (props) => {
             .catch((error) => {
                 console.log(error)
             })
-        // console.log('review in delete review card', review)
     }
 
     const openModal = () => {setShowModal(true)}
     const closeModal = () => {setShowModal(false)}
-    console.log('owner', review.owner)
 
     return (
         <>

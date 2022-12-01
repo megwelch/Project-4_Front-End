@@ -2,14 +2,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Card }from 'react-bootstrap'
 import { favoritesIndex } from '../../api/tvshow'
-import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { favoritesDelete } from '../../api/tvshow'
+
 
 const FavoritesIndex = (props) => {
     const {msgAlert, user, favorites} = props
     const [allFavorites, setAllFavorites] = useState([])
-    const { id } = useParams()
+    const [deleteFav, setDeleteFav] = useState(false)
+    
+    
 
     useEffect(() => {
+        console.log('hi')
         favoritesIndex(user)
             .then(res=> {
                 setAllFavorites(res.data.tvShow)
@@ -21,21 +26,34 @@ const FavoritesIndex = (props) => {
                     variant: "danger"
                 })
             })
-    }, [])
+    }, [deleteFav])
 
-    console.log('user', user._id)
+    const unFavorite = (id) => {
+        favoritesDelete(user, id)
+        // setDeleteFav(!deleteFav)
+            .then(()=> {
+                setDeleteFav((prevState) => {
+                    return !prevState
+            })
 
+        })
+      }
+      console.log('favorites', allFavorites)
 
     let allFavoritesJSX =  null
     if (allFavorites) {
         allFavoritesJSX = allFavorites.map((tvShow) => {
             return (
-                <Card className='shadow favorite-show-card'>
+                
+                <Card className='shadow favorite-show-card' key={tvShow._id}>
                     <div>{tvShow.title}</div>
-                    {tvShow.image ? 
-                    (<img src={tvShow.image} alt={tvShow.name} />)
-                    : 
-                    (<div className="missing-img-div text-center"><img src=""/><h1>{tvShow.name}</h1><div>no photo available</div></div>)}
+                    <Link style={{textDecoration: 'none'}} to = {`/tvshow/${tvShow.apiId}`}>
+                        {tvShow.image ? 
+                        (<img src={tvShow.image} alt={tvShow.name} />)
+                        : 
+                        (<div className="missing-img-div text-center"><img src=""/><h1>{tvShow.name}</h1><div>no photo available</div></div>)}
+                    </Link>
+                    <button movieid='${tvShow._id}' onClick={()=>unFavorite(tvShow._id)}>Unfavourite</button>
                 </Card>
             )
         })
