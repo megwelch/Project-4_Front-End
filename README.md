@@ -55,3 +55,18 @@ As a user I want the ability to:
 - favoriting functionality
 - review functionality
 - styling
+
+## Developer Journey:
+There are many things that I have learned/gained more understanding of during this project inclduing:
+- the life cycle of components
+- promise chains
+- implementing external APIs
+- react component relationships (and the importance of diagrams)
+- the concept of use effect and the importance of the dependency array
+
+
+## Goals for the Future:
+- change email to username and display in reviews posted
+- allow users to like/dislike others reviews
+- allow users to favorite/unfavorite tv shows
+- delete a show from favorited list when unfavorited
