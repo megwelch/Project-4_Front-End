@@ -4,11 +4,19 @@ import { reviewUpdate } from '../../api/review'
 
 const ReviewUpdate = (props) => {
     const {user, review, setUpdateReviews, showModal, closeModal} = props
-    const [editReview, setEditReview] = useState()
+    const [editReview, setEditReview] = useState({})
+    console.log('review._id', review._id)
 
-    const handleChange = (event) => {
-        setEditReview({...review, [event.target.name]: event.target.value})
-      }
+    // useEffect(() => {
+    //     setReview(currentCompany)
+    //   },[currentCompany])
+
+    const handleChange = (e) => {
+        setEditReview(prevReview => {
+            return({...prevReview, [e.target.name]: e.target.value})
+        // setEditReview({...review, [e.target.name] : e.target.value})
+        })
+    }
 
     const updateReview = (e) => {
         e.preventDefault()
@@ -27,9 +35,9 @@ const ReviewUpdate = (props) => {
         <>
             <Modal show={showModal}>
                 <Form onSubmit={updateReview}>
-                <Form.Label>Comment:</Form.Label>
-                <Form.Control type='text' name='comment' value={review.comment} onChange={handleChange}/>
-                <Button type='submit' onClick={closeModal}>Submit</Button>
+                    <Form.Label>Comment:</Form.Label>
+                    <Form.Control type='text' name='comment' value={editReview.comment} onChange={handleChange} />
+                    <Button type='submit' onClick={closeModal}>Submit</Button>
                 </Form>
             </Modal>
         </>
@@ -37,3 +45,5 @@ const ReviewUpdate = (props) => {
 }
 
 export default ReviewUpdate
+
+// triggerRefresh={() => setEditReview(prev => !prev)}
