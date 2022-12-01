@@ -3,7 +3,7 @@ import { Form, Modal, Button } from 'react-bootstrap'
 import { reviewUpdate } from '../../api/review'
 
 const ReviewUpdate = (props) => {
-    const {user, review, setUpdateReviews, showModal, closeModal} = props
+    const {user, review, setReview, setUpdateReviews, showModal, closeModal} = props
     const [editReview, setEditReview] = useState({})
     console.log('review._id', review._id)
 
@@ -20,11 +20,12 @@ const ReviewUpdate = (props) => {
 
     const updateReview = (e) => {
         e.preventDefault()
-        reviewUpdate(review, user, review._id)
+        reviewUpdate(editReview, user, review._id)
             .then(() => {
-                setUpdateReviews((prevState) => {
-                    return !prevState
-                })
+                setReview(editReview)
+            })
+            .then(() => {
+                closeModal()
             })
             .catch((err) => {
                 console.log(err)
@@ -36,8 +37,13 @@ const ReviewUpdate = (props) => {
             <Modal show={showModal}>
                 <Form onSubmit={updateReview}>
                     <Form.Label>Comment:</Form.Label>
-                    <Form.Control type='text' name='comment' value={editReview.comment} onChange={handleChange} />
-                    <Button type='submit' onClick={closeModal}>Submit</Button>
+                    <Form.Control 
+                    type='text' 
+                    name='comment' 
+                    value={editReview.comment} 
+                    onChange={handleChange}
+                    placeholder= {review.comment} />
+                    <Button type='submit'>Submit</Button>
                 </Form>
             </Modal>
         </>

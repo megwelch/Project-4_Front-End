@@ -4,9 +4,9 @@ import { reviewDelete } from "../../api/review"
 import ReviewUpdate from "./ReviewUpdate";
 
 const ReviewCard = (props) => {
-    const [review, setReview] = useState(props.review)
     const {user, setUpdateReviews} = props
     const [showModal, setShowModal] = useState(false)
+    const [review, setReview] = useState(props.review)
 
     const deleteReview = () => {
 
@@ -26,16 +26,23 @@ const ReviewCard = (props) => {
 
     const openModal = () => {setShowModal(true)}
     const closeModal = () => {setShowModal(false)}
+    console.log('owner', review.owner)
 
     return (
         <>
             <div className='review' key={uuid()} >
                 <div>{review.owner}</div>
                 <div>{review.comment}</div>
-                <button onClick={deleteReview}>delete</button>
-                <button onClick={openModal}>edit</button>
+                {user  && (user._id === review.owner)?
+                    <div>
+                        <button onClick={deleteReview}>delete</button>
+                        <button onClick={openModal}>edit</button>
+                    </div>
+                : null}
+                
+     
             </div>
-            <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews} showModal={showModal} closeModal={closeModal}/>
+            <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews} showModal={showModal} closeModal={closeModal} setReview={setReview}/>
         </>
     )
 }

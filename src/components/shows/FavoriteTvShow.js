@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { favoriteTvShow } from '../../api/tvshow'
+import { favoritesDelete, favoriteTvShow } from '../../api/tvshow'
 import FavoritesIndex from './FavoritesIndex'
 import { favoritesIndex } from '../../api/tvshow'
 import { useParams } from 'react-router-dom'
+import uuid from 'react-uuid';
 
 export const FavoriteTvShow = ({ show, user }) => {
     const { id } = useParams()
@@ -25,12 +26,19 @@ export const FavoriteTvShow = ({ show, user }) => {
             })
     }, [])
     
+    const unFavorite = () => {
+        favoritesDelete(user, id)
+    }
+        
 
     let tvShowArr = Array.from(allFavorites)
     // console.log(tvShowArr[0].title)
 
-
     console.log(tvShowArr)
+    let tvShowSet = new Set()
+    tvShowArr.forEach(tvshow => tvShowSet.add(tvshow))
+    console.log('set', tvShowSet)
+    console.log('value', tvShowSet.has({value:0}))
     
     let favorited = tvShowArr.some(tvshow => (tvshow.owner._id === user._id) && (tvshow.apiId == id))
     console.log(favorited)
@@ -43,7 +51,7 @@ export const FavoriteTvShow = ({ show, user }) => {
             setFavBtn(false)
         }
     }
-
+    console.log('favorite', favorite)
     // console.log('favbtn',favBtn)
 
     // const favBtn = () => {
@@ -59,7 +67,7 @@ export const FavoriteTvShow = ({ show, user }) => {
     return (
         <>
         {favBtn ? 
-            <button className='favorite-btn' onClick={handleClick}>Unfavorite</button>
+            <button className='favorite-btn' onClick={unFavorite}>Unfavorite</button>
          :
             <button className='favorite-btn' onClick={handleClick}>Favorite</button>
         }

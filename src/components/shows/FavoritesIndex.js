@@ -50,3 +50,15 @@ const FavoritesIndex = (props) => {
 }
 
 export default FavoritesIndex
+
+// add favorites array to state at app level
+// initialize empty
+// pass set function to sign in
+// on sign in run index favorites api call will be nested inside of existing promise chain
+// set results in app level
+// alternatively, make a use effect in app.js to run and set favorites index when user changes via user in dependency array
+// handle update
+// now that favorites array is at app level we can pass to children components
+// add the favorites array to the show index as props
+// descruture it to state and contitionally render card components based on if favorited or not
+// in  show tvshow we want to know if specific show is favorited already (will come from index as prop)

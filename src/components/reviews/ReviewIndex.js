@@ -15,7 +15,8 @@ const ReviewIndex = (props) => {
 
     useEffect(() => {
         reviewIndex(showId)
-            .then(res=> {
+            .then(res => {
+                console.log('here')
                 setReviews(res.data.reviews)
             })
             .catch((error) => {
