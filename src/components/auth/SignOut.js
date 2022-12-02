@@ -30,11 +30,12 @@ const SignOut = (props) => {
 
 	return (
 		<>
-            <div className='row'>
-                <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
+            <div style={{margin: 'auto'}} className='row'>
+                <div className='col-sm-10 col-md-8 mx-auto mt-5 text-center'>
                     <h2>Are you sure you want to sign out?</h2>
                     <small>We hate to see you go...</small><br/>
-                    <ButtonGroup>
+                    <ButtonGroup className='mt-3'>
                         <Button variant='danger' onClick={onSignOut}>
                             Sign Out
                         </Button>
