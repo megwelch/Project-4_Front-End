@@ -9,7 +9,6 @@ const ReviewUpdate = (props) => {
     const handleChange = (e) => {
         setEditReview(prevReview => {
             return({...prevReview, [e.target.name]: e.target.value})
-        // setEditReview({...review, [e.target.name] : e.target.value})
         })
     }
 
