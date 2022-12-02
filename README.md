@@ -2,6 +2,9 @@
 # Bingeworthy
 ![title](./images/Bingeworthy.png)
 
+## Deployed link coming soon...
+<br>
+
 ## Overview:
 
 Bingeworthy is a fullstack application that provides users with the ability to search tv shows, save their favorite tv shows, and leave reviews on tv shows. The user has the ability to make an account to keep track of all of their favorite shows.
@@ -31,15 +34,11 @@ As a user I want the ability to:
 - delete my own reviews on tv shows. 
 - like reviews made by other users.
 
-
 ## Entity Relationship Diagram:
-
 
 ![erd](./images/erd.png)
 
-
 ## Wireframe:
-
 
 ![home-page](./images/homepage.png)
 ![search](./images/search.png)
@@ -65,7 +64,6 @@ There are many things that I have learned/gained more understanding of during th
 - react component relationships (and the importance of diagrams)
 - the concept of useEffect and the importance of the dependency array
 - database connectivity
-
 
 ## Goals for the Future:
 - change email to username and display in reviews posted
