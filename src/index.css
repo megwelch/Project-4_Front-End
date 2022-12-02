@@ -118,10 +118,44 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .favorite-show-card {
   margin: 20px;
+  max-width: 220px;
+  max-height: 300px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.fav-show-img {
+  max-height: 280px;
+  position: relative;
+}
+
+.unfavorite {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: #ffbd39;
+  border: #590e7e 2px solid;
+  border-radius: 5px;
+}
+
+.unfavorite:active {
+  background: #daa2f5;
+  -webkit-box-shadow: inset 0px 0px 5px #590e7e;
+     -moz-box-shadow: inset 0px 0px 5px #590e7e;
+          box-shadow: inset 0px 0px 5px #590e7e;
+   outline: none;
+}
+
+.fa-thumbs-down {
+  color: #590e7e;
 }
 
 /* tv-show page */
@@ -203,6 +237,104 @@ body {
 }
 
 .modal {
-  padding: 40px;
   margin-top: 300px;
+}
+
+.update-btn {
+  margin: 10px 20px;
+}
+
+.modal-title {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.modal-form {
+  border-radius: 20px;
+}
+
+.modal-text-area {
+  background-color: #daa2f5;
+}
+
+.review-container {
+  width: 80%;
+  margin: auto;
+  padding-left: 60px;
+}
+
+.review {
+  min-height: 100px;
+  margin: 10px auto;
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #daa2f5;
+  border: #590e7e solid 2px;
+  position: relative
+}
+
+.review-owner-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.comment {
+  margin-left: 30px;
+}
+
+.review-btn-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0px 15px 5px;
+}
+
+.edit-delete-btn {
+  border-radius: 5px;
+}
+
+.fav-shows-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+}
+
+.line {
+  width: 80%;
+  margin: 20px auto;
+  height: 20px;
+  color: #590e7e;
+}
+
+.review-page {
+  width: 75%;
+  margin: 40px auto;
+  display: flex;
+}
+
+.review-form-container {
+  width: 100%;
+}
+
+.review-create-form {
+  width: 80%;
+  margin: 100px auto;
+}
+
+.review-img-card {
+  padding: 15px;
+  background-color: white;
+}
+
+.review-create-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #590e7e;
+}
+
+.review-create-btn {
+  margin-top: 20px;
 }

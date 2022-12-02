@@ -68,8 +68,9 @@ There are many things that I have learned/gained more understanding of during th
 ## Goals for the Future:
 - change email to username and display in reviews posted
 - allow users to like/dislike others reviews
-- allow users to favorite/unfavorite tv shows
-- delete a show from favorited list when unfavorited
+- make favorite button disappear when clicked
+- after searching for a show, be able to click 'bingeworthy' to view all shows again
+- recommend shows based on genre
 
 ## Bugs to Fix:
-- reviews are not deleting properly
+- reviews are not deleting on the backend but not displaying correctly when deleted on the frontend

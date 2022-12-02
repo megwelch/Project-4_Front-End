@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Card } from 'react-bootstrap'
 import { useNavigate, useParams, Link} from 'react-router-dom'
 import { ThemeConsumer } from 'styled-components'
 import { reviewCreate } from '../../api/review'
@@ -11,16 +11,18 @@ const ReviewCreate = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
     const { id } = location.state
-    console.log('props id', id)
+    const [show, setShow] = useState(null)
 
-    // Getting TV Show
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios(`https://api.tvmaze.com/shows/${id}`)
-            // setId(res.data.id)
+            setShow(res.data)
         };
         fetchData();
     }, []);
+
+    console.log(show)
+
 
     const defaultReview = {
         comment: '',
@@ -48,14 +50,34 @@ const ReviewCreate = (props) => {
         })
     }
 
+    if (!show){
+        return <div>Loading...</div>
+    }
+
     return(
         <>
         <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
-        <Form className='review-create-form' onSubmit={createReview}>
-            <Form.Label>Comment:</Form.Label>
-            <Form.Control type='text' name='comment' value={review.comment} onChange={handleChange}/>
-            <Button type='submit'>Submit</Button>
-        </Form>
+        <div className='review-page'>
+            <div style={{width: '40%'}}>
+                <Card className='review-img-card'>
+                    <img className='review-img'src={show.image.original} alt={show.name}/>
+                </Card>
+            </div>
+            <div className='review-form-container'>
+                <Form className='review-create-form' onSubmit={createReview}>
+                    <Form.Label className='review-create-title'>Leave your review for {show.name}:</Form.Label>
+                    <Form.Control 
+                        as='textarea'
+                        name='comment' 
+                        value={review.comment} 
+                        onChange={handleChange} 
+                        rows= {5}
+                    />
+                    <button className='pull-right favorite-btn review-create-btn' type='submit'>Submit</button>
+                </Form>
+            </div>
+        </div>
+
         </>
     )
 }

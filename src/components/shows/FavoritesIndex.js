@@ -40,14 +40,13 @@ const FavoritesIndex = (props) => {
             return (
                 
                 <Card className='shadow favorite-show-card' key={tvShow._id}>
-                    <div>{tvShow.title}</div>
                     <Link style={{textDecoration: 'none'}} to = {`/tvshow/${tvShow.apiId}`}>
                         {tvShow.image ? 
-                        (<img src={tvShow.image} alt={tvShow.name} />)
+                        (<img className='fav-show-img'src={tvShow.image} alt={tvShow.name} />)
                         : 
                         (<div className="missing-img-div text-center"><img src=""/><h1>{tvShow.name}</h1><div>no photo available</div></div>)}
                     </Link>
-                    <button onClick={()=>unFavorite(tvShow._id)}>Unfavorite</button>
+                    <button className='unfavorite' onClick={()=>unFavorite(tvShow._id)}><i class="fas fa-thumbs-down"></i></button>
                 </Card>
             )
         })
@@ -55,7 +54,9 @@ const FavoritesIndex = (props) => {
 
     return (
         <>
-        <h1 className='text-center mt-4'>Favorite Shows</h1>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
+        <div className='text-center mt-4 fav-shows-title'>Favorite Shows</div>
+        <hr style={{height: '4px'}} className='line'></hr>
         <div className='favorite-shows'>{allFavoritesJSX}</div>
         </>
     )

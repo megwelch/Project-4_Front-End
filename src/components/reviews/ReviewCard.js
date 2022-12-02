@@ -23,17 +23,24 @@ const ReviewCard = (props) => {
     const openModal = () => {setShowModal(true)}
     const closeModal = () => {setShowModal(false)}
 
+    console.log('user', user)
+
     return (
         <>
-            <div className='review' key={review._id} >
-                <div>{review.owner}</div>
-                <div>{review.comment}</div>
-                {user  && (user._id === review.owner)?
-                    <div>
-                        <button onClick={deleteReview}>delete</button>
-                        <button onClick={openModal}>edit</button>
+            <div className='review-container'>
+                <div className='review' key={review._id} >
+                    <div className='review-owner-container'>
+                        <div>Review by:</div>
+                        <div>{user.email}</div>
                     </div>
-                : null}
+                    <div className='comment'>{review.comment}</div>
+                    {user  && (user._id === review.owner)?
+                        <div className='pull-right review-btn-container'>
+                            <button className='edit-delete-btn m-2' onClick={deleteReview}>delete</button>
+                            <button className='edit-delete-btn' onClick={openModal}>edit</button>
+                        </div>
+                    : null}
+                </div>
             </div>
             <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews} showModal={showModal} closeModal={closeModal} setReview={setReview}/>
         </>

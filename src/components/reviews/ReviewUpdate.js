@@ -30,16 +30,18 @@ const ReviewUpdate = (props) => {
 
     return (
         <>
-            <Modal className='modal-lg' show={showModal}>
-                <Form onSubmit={updateReview}>
-                    <Form.Label>Update your review:</Form.Label>
+            <Modal className='modal' show={showModal}>
+                <Form className='modal-form' onSubmit={updateReview}>
+                    <Form.Label className='modal-title'>Update your review:</Form.Label>
                     <Form.Control 
-                    type='text' 
+                    className='modal-text-area'
+                    as='textarea' 
                     name='comment' 
                     value={editReview.comment} 
                     onChange={handleChange}
-                    placeholder= {review.comment} />
-                    <Button type='submit'>Submit</Button>
+                    placeholder= {review.comment}
+                    rows= {4} />
+                    <button className='pull-right update-btn favorite-btn' type='submit'>Submit</button>
                 </Form>
             </Modal>
         </>
