@@ -130,6 +130,13 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  transition: .3s ease;
+}
+.favorite-show-card:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: .3s ease;
 }
 
 .fav-show-img {
@@ -181,6 +188,13 @@ body {
 .ind-show-img {
   width: 270px;
   border-radius: 10px;
+}
+
+.genres {
+  font-size: 20px;
+  font-weight: bold;
+  color: #590e7e;
+  margin-bottom: 20px;
 }
 
 .ind-summary {
@@ -337,4 +351,8 @@ body {
 
 .review-create-btn {
   margin-top: 20px;
+}
+
+.row {
+  width: 100%;
 }

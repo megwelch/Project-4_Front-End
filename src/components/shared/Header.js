@@ -9,6 +9,11 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item>
+			<Link className='nav-link' to='/favorites' style={linkStyle}>
+				Favorites
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
 			<Link className='nav-link' to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
@@ -16,11 +21,6 @@ const authenticatedOptions = (
 		<Nav.Item>
 			<Link className='nav-link' to='sign-out' style={linkStyle}>
 				Sign Out
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link className='nav-link' to='/favorites' style={linkStyle}>
-				Favorites
 			</Link>
 		</Nav.Item>
 	</>

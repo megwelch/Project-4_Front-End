@@ -15,7 +15,6 @@ const ReviewUpdate = (props) => {
 
     const updateReview = (e) => {
         e.preventDefault()
-        console.log(editReview, user, review._id)
         reviewUpdate(editReview, user, review._id)
             .then(() => {
                 setReview(editReview)

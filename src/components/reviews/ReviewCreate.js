@@ -21,9 +21,6 @@ const ReviewCreate = (props) => {
         fetchData();
     }, []);
 
-    console.log(show)
-
-
     const defaultReview = {
         comment: '',
         apiId: parseInt(id),

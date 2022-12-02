@@ -47,8 +47,10 @@ const SignUp = (props) => {
 
 
     return (
+        <>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
         <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+            <div className='col-sm-10 col-md-5 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
                     <Form.Group controlId='email'>
@@ -62,7 +64,7 @@ const SignUp = (props) => {
                             onChange={e => setEmail(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId='password'>
+                    <Form.Group className='mt-3' controlId='password'>
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                             required
@@ -73,7 +75,7 @@ const SignUp = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId='passwordConfirmation'>
+                    <Form.Group className='mt-3' controlId='passwordConfirmation'>
                         <Form.Label>Password Confirmation</Form.Label>
                         <Form.Control
                             required
@@ -84,12 +86,13 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <button className='favorite-btn pull-right mt-3' variant='primary' type='submit'>
                         Submit
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>
+        </>
     )
 
 }

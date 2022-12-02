@@ -23,8 +23,6 @@ const ReviewCard = (props) => {
     const openModal = () => {setShowModal(true)}
     const closeModal = () => {setShowModal(false)}
 
-    console.log('user', user)
-
     return (
         <>
             <div className='review-container'>

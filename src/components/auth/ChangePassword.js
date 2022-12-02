@@ -40,14 +40,14 @@ const ChangePassword = (props) => {
 			})
 	}
 
-
-
     return (
+        <>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
         <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+            <div className='col-sm-10 col-md-5 mx-auto mt-5'>
                 <h3>Change Password</h3>
                 <Form onSubmit={onChangePassword}>
-                    <Form.Group controlId='oldPassword'>
+                    <Form.Group className='mt-3' controlId='oldPassword'>
                         <Form.Label>Old password</Form.Label>
                         <Form.Control
                             required
@@ -58,7 +58,7 @@ const ChangePassword = (props) => {
                             onChange={e => setOldPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId='newPassword'>
+                    <Form.Group className='mt-3' controlId='newPassword'>
                         <Form.Label>New Password</Form.Label>
                         <Form.Control
                             required
@@ -69,12 +69,13 @@ const ChangePassword = (props) => {
                             onChange={e => setNewPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <button className='favorite-btn pull-right mt-3' variant='primary' type='submit'>
                         Submit
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>
+        </>
     )
 }
 
