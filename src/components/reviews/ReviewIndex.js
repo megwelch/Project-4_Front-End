@@ -30,7 +30,7 @@ const ReviewIndex = (props) => {
     if (reviews)  {
         reviewDisplay = reviews.map(review => {
             return(
-                <ReviewCard review={review} user={user} setUpdateReviews = {setUpdateReviews}/>
+                <ReviewCard key={review.id} review={review} user={user} setUpdateReviews = {setUpdateReviews}/>
             )
         })
     }

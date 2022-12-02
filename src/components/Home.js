@@ -1,7 +1,6 @@
-import ShowSearch from "./shows/ShowSearch"
 import AllShows from "./shows/AllShows"
 
-const Home = (props) => {
+const Home = () => {
 
 	return (
 		<>

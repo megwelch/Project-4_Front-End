@@ -70,3 +70,6 @@ There are many things that I have learned/gained more understanding of during th
 - allow users to like/dislike others reviews
 - allow users to favorite/unfavorite tv shows
 - delete a show from favorited list when unfavorited
+
+## Bugs to Fix:
+- reviews are not deleting properly

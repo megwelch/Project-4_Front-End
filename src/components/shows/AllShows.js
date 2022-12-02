@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ShowCard from './ShowCard'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AllShows = () => {
     const [title, setTitle] = useState({name: ''})
     const [shows, setShows] = useState([])
-    // const [show, setShow] = useState([])
 
     const handleChange = (e) => {
         setTitle({ name: e.target.value})

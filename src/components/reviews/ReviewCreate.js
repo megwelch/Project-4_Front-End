@@ -4,18 +4,20 @@ import { useNavigate, useParams, Link} from 'react-router-dom'
 import { ThemeConsumer } from 'styled-components'
 import { reviewCreate } from '../../api/review'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom'
 
 const ReviewCreate = (props) => {
+    const location = useLocation()
     const navigate = useNavigate()
     const { user, msgAlert } = props
-    const [id, setId] = useState(1)
-    const [review, setReview] = useState(defaultReview)
+    const { id } = location.state
+    console.log('props id', id)
 
     // Getting TV Show
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios(`https://api.tvmaze.com/shows/${id}`)
-            setId(res.data.id)
+            // setId(res.data.id)
         };
         fetchData();
     }, []);
@@ -24,6 +26,8 @@ const ReviewCreate = (props) => {
         comment: '',
         apiId: parseInt(id),
     }
+
+    const [review, setReview] = useState(defaultReview)
 
     const handleChange = (e) => {
         setReview(prevReview => {
@@ -46,7 +50,8 @@ const ReviewCreate = (props) => {
 
     return(
         <>
-        <Form onSubmit={createReview}>
+        <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
+        <Form className='review-create-form' onSubmit={createReview}>
             <Form.Label>Comment:</Form.Label>
             <Form.Control type='text' name='comment' value={review.comment} onChange={handleChange}/>
             <Button type='submit'>Submit</Button>

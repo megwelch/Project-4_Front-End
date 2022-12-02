@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { favoritesDelete, favoriteTvShow } from '../../api/tvshow'
-import FavoritesIndex from './FavoritesIndex'
+import {favoriteTvShow } from '../../api/tvshow'
 import { favoritesIndex } from '../../api/tvshow'
 import { useParams } from 'react-router-dom'
-import uuid from 'react-uuid';
 
 export const FavoriteTvShow = ({ show, user }) => {
     const { id } = useParams()
-    const [favBtn, setFavBtn] = useState(false)
+    // const [favBtn, setFavBtn] = useState(false)
     const [allFavorites, setAllFavorites] = useState({})
     const [favorite, setFavorite] = useState(
         {
@@ -25,58 +23,19 @@ export const FavoriteTvShow = ({ show, user }) => {
                 setAllFavorites(res.data.tvShow)
             })
     }, [])
-    
-    const unFavorite = (id) => {
-      let newFav =  allFavorites.filter((fav)=> fav._id !== id )
-        setAllFavorites(newFav)
-        // favoritesDelete(user, id)
-    }
 
-    console.log('all favs', allFavorites)
-    console.log('id', id)
-    console.log(favorite, 'fav')
-        
-
-    let tvShowArr = Array.from(allFavorites)
-    // console.log(tvShowArr[0].title)
-
-    console.log(tvShowArr)
-    let tvShowSet = new Set()
-    tvShowArr.forEach(tvshow => tvShowSet.add(tvshow))
-    console.log('set', tvShowSet)
-    console.log('value', tvShowSet.has({value:0}))
-    
-    let favorited = tvShowArr.some(tvshow => (tvshow.owner._id === user._id) && (tvshow.apiId == id))
-    console.log(favorited)
+    // Was trying to use this code as well as the favBtn state to change or remove favorite button when the user has favorited a show
+    // This is now a future goal
+    // let tvShowArr = Array.from(allFavorites)
+    // let favorited = tvShowArr.some(tvshow => (tvshow.owner._id === user._id) && (tvshow.apiId == id))
 
     const handleClick = (e) => {
         favoriteTvShow (favorite, user)
-        if (favorited) {
-            setFavBtn(true)
-        } else {
-            setFavBtn(false)
-        }
     }
-    console.log('favorite', favorite)
-    // console.log('favbtn',favBtn)
-
-    // const favBtn = () => {
-    //     if (allFavorites.some(tvshow => tvshow.name === user._id)){
-    //         console.log('true')
-    //     }
-    // }
-
-    // favBtn()
-    // console.log('favorite', favorite.apiId)
-    // console.log(user._id)
 
     return (
         <>
-        {favBtn ? 
-            <button className='favorite-btn' onClick={unFavorite}>Unfavorite</button>
-         :
             <button className='favorite-btn' onClick={handleClick}>Favorite</button>
-        }
         </>
     )
 }

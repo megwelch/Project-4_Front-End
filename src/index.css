@@ -144,12 +144,6 @@ body {
   background-color: #daa2f5;
 }
 
-/* .title-img {
-  display: flex;
-  
-  justify-content: center;
-} */
-
 .ind-show-img {
   width: 270px;
   border-radius: 10px;
@@ -206,4 +200,9 @@ body {
 
 .fa-star {
   color: #ffbd39;
+}
+
+.modal {
+  padding: 40px;
+  margin-top: 300px;
 }

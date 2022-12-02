@@ -20,10 +20,6 @@ const TvShow = ({ user: user }) => {
         return <div>Loading...</div>
     }
 
-    console.log('show', show)
-
-
-
     let summary = show.summary.replace(/<\/?[^>]+>/gi, '')
 
     return(
@@ -31,10 +27,10 @@ const TvShow = ({ user: user }) => {
         <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
         <div className='show-page'>
             <section className='ind-show-container'>
-            <div className='title mt-3'>
-                {show.name}
-                <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
-            </div>
+                <div className='title mt-3'>
+                    {show.name}
+                    <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
+                </div>
                 <div className='show-border d-flex flex-row p-4'>
                     <div><img className='ind-show-img'src={show.image.original}/></div>
                     <div className='ind-summary'>
@@ -42,9 +38,8 @@ const TvShow = ({ user: user }) => {
                         <div >{summary}</div>
                     </div>
                 </div>
-            
                 <div className='review-link-section'>             
-                    <Link className='favorite-btn review-link' to={`/reviews/${id}`}>Leave a review</Link>
+                    <Link className='favorite-btn review-link' to={`/reviews/${id}`} state={{ id: id}}>Leave a review</Link>
                 </div>
             </section>
             <ReviewIndex showId={id} user={user}></ReviewIndex>

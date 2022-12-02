@@ -4,12 +4,7 @@ import { reviewUpdate } from '../../api/review'
 
 const ReviewUpdate = (props) => {
     const {user, review, setReview, setUpdateReviews, showModal, closeModal} = props
-    const [editReview, setEditReview] = useState({})
-    console.log('review._id', review._id)
-
-    // useEffect(() => {
-    //     setReview(currentCompany)
-    //   },[currentCompany])
+    const [editReview, setEditReview] = useState(review)
 
     const handleChange = (e) => {
         setEditReview(prevReview => {
@@ -20,6 +15,7 @@ const ReviewUpdate = (props) => {
 
     const updateReview = (e) => {
         e.preventDefault()
+        console.log(editReview, user, review._id)
         reviewUpdate(editReview, user, review._id)
             .then(() => {
                 setReview(editReview)
@@ -34,9 +30,9 @@ const ReviewUpdate = (props) => {
 
     return (
         <>
-            <Modal show={showModal}>
+            <Modal className='modal-lg' show={showModal}>
                 <Form onSubmit={updateReview}>
-                    <Form.Label>Comment:</Form.Label>
+                    <Form.Label>Update your review:</Form.Label>
                     <Form.Control 
                     type='text' 
                     name='comment' 

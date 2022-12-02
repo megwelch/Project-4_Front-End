@@ -1,9 +1,8 @@
 import React from "react";
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Card }from 'react-bootstrap'
 
-const ShowCard = ({ show: {image, name, rating, id}}) => {
+const ShowCard = ({ show: {image, name, id}}) => {
     return (
         <>
         <Link style={{textDecoration: 'none'}} to = {`/tvshow/${id}`}>

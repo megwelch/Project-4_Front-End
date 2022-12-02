@@ -25,7 +25,7 @@ const ReviewCard = (props) => {
 
     return (
         <>
-            <div className='review' key={uuid()} >
+            <div className='review' key={review._id} >
                 <div>{review.owner}</div>
                 <div>{review.comment}</div>
                 {user  && (user._id === review.owner)?
@@ -34,8 +34,6 @@ const ReviewCard = (props) => {
                         <button onClick={openModal}>edit</button>
                     </div>
                 : null}
-                
-     
             </div>
             <ReviewUpdate review={review} user={user} setUpdateReviews={setUpdateReviews} showModal={showModal} closeModal={closeModal} setReview={setReview}/>
         </>
