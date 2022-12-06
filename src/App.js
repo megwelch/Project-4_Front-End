@@ -14,10 +14,10 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import FavoritesIndex from './components/shows/FavoritesIndex'
 import ReviewCreate from './components/reviews/ReviewCreate'
-
+//try to get rid of any unused imports/code
 import Button from 'react-bootstrap/Button'
 import TvShow from './components/shows/TvShow'
-
+//make sure you're putting comments throughout your code
 const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
