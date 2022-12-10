@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import uuid from 'react-uuid';
 import { reviewDelete } from "../../api/review"
 import ReviewUpdate from "./ReviewUpdate";
 

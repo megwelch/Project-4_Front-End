@@ -22,7 +22,7 @@ const FavoritesIndex = (props) => {
                     variant: "danger"
                 })
             })
-    }, [deleteFav])
+    }, [deleteFav, favorites, msgAlert, user])
 
     const unFavorite = (id) => {
         favoritesDelete(user, id)
@@ -44,7 +44,7 @@ const FavoritesIndex = (props) => {
                         {tvShow.image ? 
                         (<img className='fav-show-img'src={tvShow.image} alt={tvShow.name} />)
                         : 
-                        (<div className="missing-img-div text-center"><img src=""/><h1>{tvShow.name}</h1><div>no photo available</div></div>)}
+                        (<div className="missing-img-div text-center"><img src="" alt='not available'/><h1>{tvShow.name}</h1><div>no photo available</div></div>)}
                     </Link>
                     <button className='unfavorite' onClick={()=>unFavorite(tvShow._id)}><i class="fas fa-thumbs-down"></i></button>
                 </Card>

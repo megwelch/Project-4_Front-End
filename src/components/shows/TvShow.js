@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import FavoriteTvShow from './FavoriteTvShow';
 import ReviewIndex from '../reviews/ReviewIndex';
 
-const TvShow = ({ user: user }) => {
+const TvShow = ({ user }) => {
     const { id } = useParams()
     const [show, setShow] = useState(null)
 
@@ -14,7 +14,7 @@ const TvShow = ({ user: user }) => {
             setShow(res.data)
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     if (!show){
         return <div>Loading...</div>
@@ -33,7 +33,7 @@ const TvShow = ({ user: user }) => {
                     <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
                 </div>
                 <div className='show-border d-flex flex-row p-4'>
-                    <div><img className='ind-show-img'src={show.image.original}/></div>
+                    <div><img className='ind-show-img'src={show.image.original} alt={show.name}/></div>
                     <div className='ind-summary'>
                         <div className='rating'>{show.rating.average} / 10 <i class="fa-solid fa-star"></i></div>
                         <div className='genres'>{genres}</div>

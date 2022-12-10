@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Card } from 'react-bootstrap'
-import { useNavigate, useParams, Link} from 'react-router-dom'
-import { ThemeConsumer } from 'styled-components'
+import { Form, Card } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { reviewCreate } from '../../api/review'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom'
@@ -19,7 +18,7 @@ const ReviewCreate = (props) => {
             setShow(res.data)
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     const defaultReview = {
         comment: '',

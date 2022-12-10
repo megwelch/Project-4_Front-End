@@ -14,8 +14,6 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import FavoritesIndex from './components/shows/FavoritesIndex'
 import ReviewCreate from './components/reviews/ReviewCreate'
-
-import Button from 'react-bootstrap/Button'
 import TvShow from './components/shows/TvShow'
 
 const App = () => {

@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react"
-// import uuid from 'react-uuid';
 import { reviewIndex } from "../../api/review"
-import { reviewDelete } from "../../api/review"
-import { reviewUpdate } from "../../api/review"
 import ReviewCard from "./ReviewCard";
 
 
@@ -24,7 +21,7 @@ const ReviewIndex = (props) => {
                     variant: "danger"
                 })
             })
-    },[updateReviews])
+    },[updateReviews, showId, msgAlert])
 
     let reviewDisplay = null
     if (reviews)  {

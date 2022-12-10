@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import { Form, Modal, Button } from 'react-bootstrap'
+import { Form, Modal } from 'react-bootstrap'
 import { reviewUpdate } from '../../api/review'
 
 const ReviewUpdate = (props) => {
-    const {user, review, setReview, setUpdateReviews, showModal, closeModal} = props
+    const {user, review, setReview, showModal, closeModal} = props
     const [editReview, setEditReview] = useState(review)
 
     const handleChange = (e) => {

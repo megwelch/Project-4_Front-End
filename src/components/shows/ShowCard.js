@@ -10,7 +10,7 @@ const ShowCard = ({ show: {image, name, id}}) => {
                 {image ? 
                 (<img src={image.medium} alt={name} />)
                 : 
-                (<div className="missing-img-div text-center"><img src=""/><h1>{name}</h1><div>no photo available</div></div>)}
+                (<div className="missing-img-div text-center"><img src="" alt='not available'/><h1>{name}</h1><div>no photo available</div></div>)}
             </Card>
         </Link>
         </>

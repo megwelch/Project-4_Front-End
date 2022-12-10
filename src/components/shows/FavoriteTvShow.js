@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {favoriteTvShow } from '../../api/tvshow'
 import { favoritesIndex } from '../../api/tvshow'
-import { useParams } from 'react-router-dom'
 
 export const FavoriteTvShow = ({ show, user }) => {
-    const { id } = useParams()
-    // const [favBtn, setFavBtn] = useState(false)
     const [allFavorites, setAllFavorites] = useState({})
-    const [favorite, setFavorite] = useState(
+    const [favorite] = useState(
         {
             title: show.name,
             image: show.image.medium,
@@ -22,7 +19,7 @@ export const FavoriteTvShow = ({ show, user }) => {
             .then(res=> {
                 setAllFavorites(res.data.tvShow)
             })
-    }, [])
+    }, [user, allFavorites])
 
     // Was trying to use this code as well as the favBtn state to change or remove favorite button when the user has favorited a show
     // This is now a future goal
