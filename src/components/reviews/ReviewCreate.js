@@ -54,7 +54,7 @@ const ReviewCreate = (props) => {
         <>
         <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
         <div className='review-page'>
-            <div style={{width: '40%'}}>
+            <div className='review-show-img'>
                 <Card className='review-img-card'>
                     <img className='review-img'src={show.image.original} alt={show.name}/>
                 </Card>

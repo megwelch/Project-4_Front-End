@@ -32,11 +32,26 @@ const TvShow = ({ user }) => {
                     {show.name}
                     <FavoriteTvShow show = {show} user= {user}></FavoriteTvShow>
                 </div>
-                <div className='show-border d-flex flex-row p-4'>
+                <div className='show-border p-4'>
                     <div><img className='ind-show-img'src={show.image.original} alt={show.name}/></div>
                     <div className='ind-summary'>
                         <div className='rating'>{show.rating.average} / 10 <i class="fa-solid fa-star"></i></div>
                         <div className='genres'>{genres}</div>
+                        <div >{summary}</div>
+                    </div>
+                </div>
+                <div className='ind-media-view p-4'>
+                    <div className='show-rating'>
+                        <img className='ind-show-img'src={show.image.original} alt={show.name}/>
+                        <div className='d-flex flex-column gen-info'>
+                            <div className='rating'>{show.rating.average} / 10 <i class="fa-solid fa-star"></i></div>
+                            <div className='genres'>{genres}</div>
+                        </div>
+                        
+                    </div>
+
+                    <div className='ind-summary'>
+                        
                         <div >{summary}</div>
                     </div>
                 </div>

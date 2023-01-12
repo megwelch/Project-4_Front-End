@@ -35,7 +35,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-left: 30px;
+  margin: 70px auto 70px;
+
 }
 
 .search-text {
@@ -179,6 +180,8 @@ body {
 }
 
 .show-border {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   border: 6px solid #ffbd39;
   border-radius: 10px;
@@ -188,6 +191,10 @@ body {
 .ind-show-img {
   width: 270px;
   border-radius: 10px;
+}
+
+.ind-media-view {
+  display: none;
 }
 
 .genres {
@@ -329,6 +336,10 @@ body {
   display: flex;
 }
 
+.review-show-img {
+  width: 40%;
+}
+
 .review-form-container {
   width: 100%;
 }
@@ -355,4 +366,156 @@ body {
 
 .row {
   width: 100%;
+}
+
+.sign-out-btn {
+  background-color: #daa2f5 !important;
+  border: none !important;
+}
+
+@media (max-width: 600px){
+ .site-name {
+  font-size: 20px;
+ }
+
+ .fa-tv {
+  font-size: 20px;
+ }
+
+.form {
+  width: 100vw;
+  font-size: 14px;
+}
+
+ .search-container {
+  width: 50%;
+  margin: 30px auto 30px;
+ }
+
+ .input {
+  width: 70vw;
+ }
+
+ .show-container {
+  padding: 0px 10px;
+  gap: 10px;
+ }
+
+ .show-card {
+  max-width: 100px;
+  max-height: 200px;
+  padding: 4px;
+ }
+
+ .title {
+  font-size: 30px;
+  line-height: 110%;
+  padding-bottom: 0px 0px 20px;
+  gap: 20px;
+ }
+
+ .favorite-btn {
+  font-size: 12px;
+  padding: 0px 10px;
+  border: 2px solid #ffbd39;
+ }
+
+ .ind-show-container {
+  width: 90%;
+ }
+
+ .ind-show-img {
+  width: 150px
+ }
+
+ .ind-media-view{
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #ffbd39;
+  border-radius: 10px;
+  background-color: #daa2f5;
+  margin-top: 20px;
+ }
+
+ .show-rating {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+ }
+
+ .rating {
+  font-size: 22px;
+ }
+
+ .genres {
+  font-size: 15px;
+ }
+ 
+ .show-border {
+  display: none;
+ }
+
+ .ind-summary {
+  width: 100%;
+  padding: 20px 5px;
+ }
+
+ .review-link {
+  padding: 10px 10px 10px;
+ }
+
+ .review-page {
+  width: 100%;
+  flex-direction: column;
+ }
+
+ .review-show-img {
+  width: 70%;
+  margin: auto;
+ }
+
+ .review-create-form {
+  text-align: center;
+  margin: 20px auto;
+ }
+
+ .review-create-btn {
+  padding: 10px 10px 10px;
+ }
+
+ .favorite-show-card {
+  padding: 4px;
+ }
+
+ .fav-show-img {
+  max-height: 180px;
+ }
+
+ .sign-in-btn {
+  padding: 5px 10px 5px;
+ }
+
+ .sign-in-form {
+  width: 80%;
+  margin: auto;
+ }
+
+ .fav-shows-title {
+  font-size: 30px;
+ }
+
+ .review-container {
+  width: 100vw;
+  padding: 0px;
+ }
+
+ .review {
+  width: 90%;
+ }
+
+ .review-btn-container {
+  font-size: 12px;
+  top: 0;
+  margin-right: 5px;
+ }
 }

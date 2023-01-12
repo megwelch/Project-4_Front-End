@@ -42,7 +42,7 @@ const SignIn = (props) => {
     return (
         <>
         <style>{'body { background-color: rgba(139, 38, 206, .8)}'}</style>
-        <div className='row'>
+        <div className='sign-in-form'>
             <div className='col-sm-3 col-md-5 mx-auto mt-5'>
                 <h3>Sign In</h3>
                 <Form onSubmit={onSignIn}>
@@ -68,7 +68,7 @@ const SignIn = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <button className='favorite-btn pull-right mt-3' variant='primary' type='submit'>
+                    <button className='sign-in-btn favorite-btn pull-right mt-3' type='submit'>
                         Submit
                     </button>
                 </Form>

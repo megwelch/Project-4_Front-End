@@ -50,9 +50,9 @@ const AllShows = () => {
                     <button type='submit' className='submit-button search-btn'><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <div class='kermit-container'>
+            {/* <div class='kermit-container'>
                 <img id='kermit' src='https://i.imgur.com/6vNqFg8.png' alt={title.name}></img>
-            </div>
+            </div> */}
         </div>
 
         <div className='show-container'>
